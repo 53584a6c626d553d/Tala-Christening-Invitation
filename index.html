@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#060B1E">
+<title>Starr Azrielle — Christening &amp; First Birthday</title>
+<meta name="description" content="Join us as we celebrate Tala's Christening and First Birthday — August 23, 2026.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Karla:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --navy-deep:#060B1E;
+    --navy-mid:#0F1B3D;
+    --navy-glow:#16234C;
+    --card-line:rgba(244,200,106,0.18);
+    --gold:#F4C86A;
+    --gold-soft:#D9B26B;
+    --ivory:#F5EFE1;
+    --ivory-dim:rgba(245,239,225,0.68);
+    --blush:#E8A9B8;
+    --royal-blue:#3B4E9E;
+    --star-blue:#9FC2FF;
+    --max-w:560px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  :focus-visible{outline:3px solid var(--star-blue); outline-offset:4px;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse at 50% -10%, #1a2a5c 0%, var(--navy-mid) 38%, var(--navy-deep) 75%);
+    color:var(--ivory);
+    font-family:'Karla', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  /* ---------- starfield ---------- */
+  #starfield{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+    overflow:hidden;
+  }
+  .star{
+    position:absolute;
+    background:var(--ivory);
+    border-radius:50%;
+    opacity:0.6;
+    animation:twinkle ease-in-out infinite;
+  }
+  @keyframes twinkle{
+    0%,100%{opacity:0.15; transform:scale(0.8);}
+    50%{opacity:0.95; transform:scale(1.15);}
+  }
+  .shooting-star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:linear-gradient(90deg, #fff, transparent);
+    border-radius:50%;
+    filter:drop-shadow(0 0 6px #fff);
+    animation:shoot 6s linear infinite;
+    opacity:0;
+  }
+  @keyframes shoot{
+    0%{opacity:0; transform:translate(0,0);}
+    2%{opacity:1;}
+    15%{opacity:0; transform:translate(-220px,220px);}
+    100%{opacity:0;}
+  }
+
+  .wrap{
+    position:relative;
+    z-index:1;
+    max-width:var(--max-w);
+    margin:0 auto;
+    padding:0 24px;
+  }
+  .full-bleed{
+    position:relative;
+    z-index:1;
+  }
+  .skip-link{
+    position:fixed;
+    top:12px;
+    left:12px;
+    z-index:30;
+    padding:8px 12px;
+    color:var(--navy-deep);
+    background:var(--ivory);
+    border-radius:3px;
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    transform:translateY(-150%);
+    transition:transform 0.2s ease;
+  }
+  .skip-link:focus{transform:translateY(0);}
+
+  /* ---------- shared type ---------- */
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+    text-align:center;
+    margin:0 0 14px;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    margin:0;
+  }
+  .section{
+    padding:72px 0;
+    position:relative;
+  }
+  .section-title{
+    font-size:1.7rem;
+    text-align:center;
+    color:var(--ivory);
+    margin-bottom:8px;
+  }
+  .section-sub{
+    text-align:center;
+    color:var(--ivory-dim);
+    font-size:0.95rem;
+    max-width:400px;
+    margin:0 auto 40px;
+  }
+
+  /* ornamental flourish divider */
+  .divider{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    width:100%;
+    max-width:220px;
+    margin:0 auto;
+    padding:0;
+    opacity:0.75;
+  }
+  .divider svg{width:100%; height:auto; display:block;}
+  .divider .stem{flex:1; height:1px; background:linear-gradient(90deg, transparent, var(--card-line));}
+  .divider .stem.r{background:linear-gradient(90deg, var(--card-line), transparent);}
+
+  /* reveal-on-scroll */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity 0.8s ease, transform 0.8s ease;}
+  .reveal.visible{opacity:1; transform:translateY(0);}
+
+  /* corner-bracket ornament, reused on cards */
+  .ornate{position:relative;}
+  .ornate::before, .ornate::after{
+    content:'';
+    position:absolute;
+    width:16px;
+    height:16px;
+    border:1px solid var(--gold-soft);
+    opacity:0.7;
+  }
+  .ornate::before{ top:-1px; left:-1px; border-right:none; border-bottom:none; }
+  .ornate::after{ bottom:-1px; right:-1px; border-left:none; border-top:none; }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    isolation:isolate;
+    width:100vw;
+    min-height:100vh;
+    min-height:100svh;
+    margin-left:calc(50% - 50vw);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-end;
+    text-align:center;
+    padding:80px 24px 56px;
+    overflow:hidden;
+  }
+  .hero-background,
+  .hero-background img,
+  .hero::after{
+    position:absolute;
+    inset:0;
+  }
+  .hero-background{z-index:-2; background:var(--navy-mid);}
+  .hero-background img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center top;
+    display:block;
+  }
+  .hero::after{
+    content:'';
+    z-index:-1;
+    background:linear-gradient(180deg, rgba(6,11,30,0.28) 0%, rgba(6,11,30,0.46) 38%, rgba(6,11,30,0.9) 100%);
+  }
+  .hero > :not(.hero-background){
+    position:relative;
+    z-index:1;
+    max-width:560px;
+  }
+  .crown-svg{width:90px; height:auto; margin-bottom:14px; filter:drop-shadow(0 2px 10px rgba(6,11,30,0.75));}
+  .hero .eyebrow{margin-bottom:16px;}
+
+  .hero-name{
+    font-size:clamp(2.4rem,10vw,3.8rem);
+    font-style:italic;
+    font-weight:600;
+    line-height:1.08;
+    background:linear-gradient(180deg, #FDEFC7 0%, var(--gold) 55%, var(--gold-soft) 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    letter-spacing:0.01em;
+    text-shadow:0 4px 24px rgba(6,11,30,0.52);
+  }
+
+  .hero-name-tala{
+    font-size:clamp(2.4rem,10vw,3.8rem);
+    font-style:italic;
+    font-weight:600;
+    line-height:1.08;
+    background:linear-gradient(180deg, #FDEFC7 0%, var(--gold) 55%, var(--gold-soft) 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    letter-spacing:0.01em;
+    text-shadow:0 4px 24px rgba(6,11,30,0.52);
+  }
+  .name-swash{width:140px; height:auto; margin-top:6px;}
+  .hero-occasion{
+    margin-top:16px;
+    font-family:'Fraunces', serif;
+    font-size:0.95rem;
+    color:var(--ivory);
+    font-weight:400;
+  }
+  .hero-occasion span{color:var(--blush); font-style:italic;}
+
+  /* music pill + toggle */
+  .music-pill{
+    margin-top:22px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'Space Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ivory);
+    background:rgba(244,200,106,0.08);
+    border:1px solid var(--card-line);
+    border-radius:30px;
+    padding:9px 18px;
+    cursor:pointer;
+    transition:background 0.2s ease;
+  }
+  .music-pill:hover{background:rgba(244,200,106,0.14);}
+  
+.music-fab{
+    position:fixed;
+    right:18px;
+    top:18px;
+    bottom:auto;
+    z-index:20;
+    width:46px;
+    height:46px;
+    border-radius:50%;
+    background:var(--navy-mid);
+    border:1px solid var(--gold-soft);
+    color:var(--gold);
+    display:none;
+    align-items:center;
+    justify-content:flex-end;
+    cursor:pointer;
+    box-shadow:0 4px 18px rgba(0,0,0,0.4);
+  }
+  .music-fab.show{display:flex;}
+
+  /* wax-seal date badge + countdown, merged in hero */
+  .hero-datestrip{
+    margin-top:24px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+  }
+  .date-badge{
+    position:relative;
+    width:132px;
+    height:132px;
+    border-radius:50%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-end;
+    gap:2px;
+    background:radial-gradient(circle at 50% 40%, rgba(244,200,106,0.16), rgba(6,11,30,0.28) 70%);
+    border:1px solid var(--gold-soft);
+    box-shadow:inset 0 0 0 4px rgba(6,11,30,0.6), inset 0 0 0 5px rgba(244,200,106,0.35);
+  }
+  .date-badge .seal-star{color:var(--blush); font-size:0.65rem; margin-bottom:2px;}
+  .date-badge .d{font-family:'Space Mono', monospace; font-size:0.76rem; letter-spacing:0.05em; color:var(--gold); text-align:center;}
+  .date-badge .t{font-family:'Space Mono', monospace; font-size:0.6rem; letter-spacing:0.05em; color:var(--ivory-dim); text-align:center;}
+
+  .countdown{display:flex; justify-content:flex-end; gap:8px; flex-wrap:wrap;}
+  .count-box{
+    background:rgba(244,200,106,0.07);
+    border:1px solid var(--card-line);
+    border-radius:3px;
+    padding:12px 5px;
+    width:64px;
+    text-align:center;
+    box-shadow:0 0 16px rgba(244,200,106,0.10);
+  }
+  .count-box .num{font-family:'Fraunces', serif; font-size:1.35rem; color:var(--gold); font-weight:600;}
+  .count-box .lbl{font-family:'Space Mono', monospace; font-size:0.55rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--ivory-dim); margin-top:3px;}
+
+  .scroll-cue{
+    margin-top:40px;
+    font-family:'Space Mono', monospace;
+    font-size:0.65rem;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--ivory-dim);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+  }
+  .scroll-cue .line{width:1px; height:24px; background:var(--ivory-dim); animation:cue 1.8s ease-in-out infinite;}
+  @keyframes cue{0%,100%{transform:scaleY(0.6); opacity:0.4;} 50%{transform:scaleY(1); opacity:1;}}
+
+  /* ---------- name meaning ---------- */
+@media (min-width:992px){
+
+.meaning-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+    max-width:1050px;
+    margin:0 auto 30px;
+    align-items:stretch;
+}
+
+.meaning-card{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    min-height:200px;
+    padding:32px;
+}
+
+.meaning-card .word{
+    font-size:2rem;
+    margin-bottom:18px;
+}
+
+.meaning-card .def{
+    max-width:420px;
+    margin:0;
+    text-align:center;
+    line-height:1.8;
+}
+
+}
+
+}
+  .sky-note{
+    text-align:center;
+    font-size:0.98rem;
+    color:var(--ivory-dim);
+    max-width:420px;
+    margin:0 auto;
+  }
+  .sky-note em{color:var(--star-blue); font-style:italic;}
+  .sky-note .name-tag{color:var(--blush); font-style:italic;}
+
+  /* ---------- calendar ---------- */
+  .calendar-card{
+    border:1px solid var(--card-line);
+    border-radius:6px;
+    background:rgba(244,200,106,0.03);
+    padding:24px 18px 20px;
+    max-width:340px;
+    margin:0 auto;
+  }
+  .calendar-head{
+    text-align:center;
+    font-family:'Space Mono', monospace;
+    letter-spacing:0.14em;
+    font-size:0.82rem;
+    color:var(--gold);
+    text-transform:uppercase;
+    margin-bottom:16px;
+  }
+  .cal-grid{display:grid; grid-template-columns:repeat(7,1fr); gap:6px;}
+  .cal-dow{
+    text-align:center;
+    font-family:'Space Mono', monospace;
+    font-size:0.6rem;
+    letter-spacing:0.06em;
+    color:var(--ivory-dim);
+    padding-bottom:4px;
+  }
+  .cal-day{
+    text-align:center;
+    font-size:0.82rem;
+    color:var(--ivory-dim);
+    padding:7px 0;
+    border-radius:50%;
+  }
+  .cal-day.empty{opacity:0;}
+  .cal-day.marked{
+    background:var(--gold);
+    color:var(--navy-deep);
+    font-weight:700;
+    box-shadow:0 0 14px rgba(244,200,106,0.55);
+    position:relative;
+  }
+
+  /* ---------- family slider ---------- */
+  .slider{
+    position:relative;
+    width:100%;
+    aspect-ratio:3/4;
+    border-radius:6px;
+    overflow:hidden;
+    border:1px solid var(--card-line);
+  }
+  .slider-track{
+    display:flex;
+    height:100%;
+    transition:transform 0.6s ease;
+    will-change:transform;
+  }
+  .slider-track img{width:100%; height:100%; object-fit:cover; flex:none;}
+  .slider-control{
+    position:absolute;
+    top:50%;
+    z-index:2;
+    width:42px;
+    height:42px;
+    border:1px solid var(--card-line);
+    border-radius:50%;
+    color:var(--ivory);
+    background:rgba(6,11,30,0.62);
+    font-size:1.45rem;
+    line-height:1;
+    cursor:pointer;
+    transform:translateY(-50%);
+  }
+  .slider-control:hover{background:var(--navy-mid);}
+  .slider-control.prev{left:12px;}
+  .slider-control.next{right:12px;}
+  .slider-dots{
+    display:flex;
+    justify-content:center;
+    gap:7px;
+    margin-top:14px;
+  }
+  .slider-dots button{
+    width:6px; height:6px;
+    padding:0;
+    border:0;
+    border-radius:50%;
+    background:var(--card-line);
+    transition:background 0.3s ease;
+    cursor:pointer;
+  }
+  .slider-dots button.active{background:var(--gold);}
+
+  /* ---------- dress code ---------- */
+  .dress-row{
+    display:flex;
+    justify-content:center;
+    gap:36px;
+    margin:26px 0 10px;
+  }
+  .swatch{text-align:center;}
+  .swatch .dot{
+    width:52px; height:52px;
+    border-radius:50%;
+    margin:0 auto 10px;
+    border:1px solid var(--card-line);
+  }
+  .swatch .dot.white{background:#F5EFE1; box-shadow:0 0 14px rgba(245,239,225,0.35);}
+  .swatch .dot.royal{background:var(--royal-blue); box-shadow:0 0 14px rgba(59,78,158,0.55);}
+  .swatch .lbl{font-family:'Space Mono', monospace; font-size:0.62rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--ivory-dim);}
+
+  /* ---------- event / venue cards ---------- */
+  
+
+.card{
+    border:1px solid var(--card-line);
+    background:linear-gradient(180deg, rgba(244,200,106,0.05), rgba(244,200,106,0.015));
+    border-radius:4px;
+    padding:0 0 22px;
+    margin-bottom:26px;
+    overflow:hidden;
+  }
+  .venue-photo{width:100%; height:170px; object-fit:cover; display:block;}
+  .card-body{padding:20px 22px 0;}
+  .card-kicker{
+    font-family:'Space Mono', monospace;
+    font-size:0.66rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:10px;
+  }
+  .card h3{font-size:1.3rem; color:var(--ivory); margin-bottom:6px;}
+  .card .addr{color:var(--ivory-dim); font-size:0.9rem; margin-bottom:16px;}
+  .card .when{
+    font-family:'Space Mono', monospace;
+    font-size:0.8rem;
+    color:var(--star-blue);
+    margin-bottom:16px;
+    letter-spacing:0.03em;
+  }
+  .map-frame{
+    width:100%;
+    height:180px;
+    border:0;
+    border-radius:3px;
+    filter:grayscale(0.25) invert(0.92) contrast(0.9);
+    margin-bottom:14px;
+    display:block;
+  }
+  .btn{
+    display:inline-block;
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--navy-deep);
+    background:var(--gold);
+    padding:11px 18px;
+    border-radius:2px;
+    border:none;
+    cursor:pointer;
+    transition:transform 0.2s ease, background 0.2s ease;
+  }
+  .btn:hover{background:var(--ivory); transform:translateY(-1px);}
+  .btn-outline{background:transparent; color:var(--gold); border:1px solid var(--gold);}
+  .btn-outline:hover{background:rgba(244,200,106,0.1); color:var(--gold);}
+
+  /* ---------- save the date ---------- */
+  .std-card{
+    text-align:center;
+    padding:36px 24px;
+  }
+  .std-card .big-date{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:2.1rem;
+    color:var(--gold);
+    margin:10px 0 4px;
+  }
+  .std-card .sub{color:var(--ivory-dim); font-size:0.88rem; margin-bottom:22px;}
+
+  /* ---------- RSVP ---------- */
+  .rsvp-box{text-align:center; border:1px solid var(--card-line); border-radius:4px; padding:32px 22px; background:rgba(244,200,106,0.04);}
+  .rsvp-box p{color:var(--ivory-dim); font-size:0.94rem;}
+  .qr-wrap{
+    width:180px;
+    margin:20px auto;
+    padding:12px;
+    background:var(--ivory);
+    border-radius:6px;
+  }
+  .qr-wrap img{width:100%; display:block; border-radius:2px;}
+  .rsvp-link{
+    display:block;
+    margin-top:14px;
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    color:var(--star-blue);
+    word-break:break-all;
+  }
+
+  /* ---------- sponsors ---------- */
+  .sponsor-cols{display:flex; gap:16px;}
+  .sponsor-col{flex:1;}
+  .sponsor-col .tag{
+    text-align:center;
+    font-family:'Space Mono', monospace;
+    font-size:0.66rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--blush);
+    margin-bottom:14px;
+  }
+  .sponsor-col ul{list-style:none; margin:0; padding:0;}
+  .sponsor-col li{
+    text-align:center;
+    padding:10px 4px;
+    border-top:1px solid var(--card-line);
+    font-size:0.88rem;
+    color:var(--ivory);
+  }
+  .sponsor-col li:last-child{border-bottom:1px solid var(--card-line);}
+
+  /* ---------- contacts ---------- */
+  .contact-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    padding:14px 0;
+    border-top:1px solid var(--card-line);
+  }
+  .contact-row:last-child{border-bottom:1px solid var(--card-line);}
+  .contact-row .who{font-size:0.92rem; color:var(--ivory);}
+  .contact-row .num{font-family:'Space Mono', monospace; font-size:0.8rem; color:var(--star-blue);}
+
+  /* ---------- FAQ ---------- */
+  .faq-item{border-top:1px solid var(--card-line);}
+  .faq-item:last-child{border-bottom:1px solid var(--card-line);}
+  .faq-item summary{
+    list-style:none;
+    cursor:pointer;
+    padding:16px 4px;
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    font-family:'Fraunces', serif;
+    font-size:1rem;
+    color:var(--ivory);
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary .plus{color:var(--gold); font-family:'Space Mono', monospace;}
+  .faq-item .faq-a{padding:0 4px 16px; color:var(--ivory-dim); font-size:0.9rem;}
+
+  /* ---------- milestones (continuous memory album) ---------- */
+  .memory-album{margin:0 -24px; overflow:hidden;}
+  .memory-track{
+    display:flex;
+    gap:14px;
+    overflow-x:auto;
+    padding:4px 24px 16px;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+    cursor:grab;
+    touch-action:pan-y;
+  }
+  .memory-track::-webkit-scrollbar{display:none;}
+  .memory-track.is-dragging{cursor:grabbing; scroll-snap-type:none;}
+  .memory-slide{
+    position:relative;
+    flex:0 0 min(76vw, 320px);
+    aspect-ratio:3/4;
+    overflow:hidden;
+    scroll-snap-align:center;
+    border:1px solid var(--card-line);
+    border-radius:6px;
+    background:var(--navy-glow);
+    box-shadow:0 14px 35px rgba(0,0,0,0.25);
+  }
+  .memory-slide img{width:100%; height:100%; object-fit:cover; display:block;}
+  .memory-slide::after{
+    content:'';
+    position:absolute;
+    inset:45% 0 0;
+    background:linear-gradient(transparent, rgba(6,11,30,0.8));
+    pointer-events:none;
+  }
+  .memory-slide-label{
+    position:absolute;
+    z-index:1;
+    left:16px;
+    right:16px;
+    bottom:14px;
+    font-family:'Space Mono', monospace;
+    font-size:0.62rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ivory);
+  }
+  .memory-controls{display:flex; align-items:center; justify-content:center; gap:16px; margin-top:6px;}
+  .memory-progress{width:106px; height:1px; background:var(--card-line); overflow:hidden;}
+  .memory-progress span{display:block; width:2%; height:100%; background:var(--gold); transition:width 0.35s ease;}
+  .memory-count{font-family:'Space Mono', monospace; font-size:0.66rem; letter-spacing:0.12em; color:var(--ivory-dim); min-width:72px; text-align:center;}
+  .memory-button{
+    width:40px;
+    height:40px;
+    border:1px solid var(--card-line);
+    border-radius:50%;
+    color:var(--gold);
+    background:rgba(244,200,106,0.07);
+    font-size:1.4rem;
+    line-height:1;
+    cursor:pointer;
+  }
+  .memory-button:hover{background:rgba(244,200,106,0.15);}
+
+  /* ---------- closing screen ---------- */
+  .closing{
+    position:relative;
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-end;
+    text-align:center;
+    padding:60px 24px;
+    overflow:hidden;
+  }
+  .closing-bg{
+    position:absolute;
+    inset:0;
+    z-index:0;
+  }
+  .closing-bg img{width:100%; height:100%; object-fit:cover; display:block; opacity:0.55;}
+  .closing-bg::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(6,11,30,0.55) 0%, rgba(6,11,30,0.85) 100%);
+  }
+  .closing-content{position:relative; z-index:1;}
+  .closing-content .eyebrow{color:var(--gold);}
+  .closing-content h2{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.8rem;
+    color:var(--ivory);
+    max-width:340px;
+    margin:0 auto 18px;
+    line-height:1.3;
+  }
+  .closing-content .cdate{
+    font-family:'Space Mono', monospace;
+    letter-spacing:0.14em;
+    color:var(--blush);
+    font-size:0.85rem;
+  }
+
+  footer{text-align:center; padding:40px 24px 50px; color:var(--ivory-dim); font-size:0.8rem; position:relative; z-index:1;}
+  footer .fname{font-family:'Fraunces', serif; font-style:italic; color:var(--gold); font-size:1.1rem; display:block; margin-bottom:6px;}
+
+  @media (min-width:600px){
+    .meaning-grid{flex-direction:row;}
+  }
+
+
+@media (min-width:992px){
+
+:root{--max-w:1200px;}
+
+.section{padding:110px 0;}
+
+.hero{
+align-items:flex-start;
+justify-content:flex-end;
+text-align:left;
+padding:0 8vw 70px;
+}
+
+.hero>:not(.hero-background){max-width:560px;}
+
+.hero-background img{object-position:center top;}
+
+.hero::after{
+background:linear-gradient(90deg,
+rgba(6,11,30,.86) 0%,
+rgba(6,11,30,.62) 30%,
+rgba(6,11,30,.18) 58%,
+rgba(6,11,30,.70) 100%);
+}
+
+@media (min-width:992px){
+
+.crown-svg{
+    display:block;
+    width:42px;
+    height:auto;
+    margin:12px 0 14px;
+    align-self:flex-start;
+}
+
+}
+.hero .eyebrow{text-align:left;margin-bottom:18px;}
+
+.hero-name{
+font-size:4rem;
+line-height:.95;
+}
+
+.hero-name-tala{
+font-size:5.8rem;
+line-height:.9;
+margin-top:-8px;
+}
+
+.hero-occasion{font-size:1.2rem;}
+
+.scroll-cue{align-items:flex-start;margin-top:46px;}
+
+
+
+
+.sponsor-cols,
+.contact-row{
+max-width:900px;
+margin:auto;
+}
+
+.music-fab{
+width:52px;
+height:52px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:1.15rem;
+padding:0;
+}
+
+}
+@media (min-width:992px){
+
+/* Consistent section width */
+.section>.container,
+.container{
+max-width:1200px;
+margin:0 auto;
+}
+
+/* Save the date */
+.calendar-card,
+.save-date-card{
+max-width:620px;
+margin:0 auto;
+padding:40px 48px;
+}
+
+/* Venue */
+.event-grid,
+.venue-grid{
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:40px;
+align-items:start;
+}
+.event-grid>.card,
+.venue-grid>.card{
+width:100%!important;
+margin:0!important;
+height:100%;
+}
+
+/* Reach us */
+.contact-row,
+.contacts-grid{
+display:grid;
+grid-template-columns:repeat(2,minmax(280px,1fr));
+gap:28px;
+max-width:760px;
+margin:30px auto 0;
+}
+.contact-row .card,
+.contacts-grid .card{
+width:100%!important;
+margin:0!important;
+}
+
+/* FAQ */
+.faq,
+.accordion,
+details{
+max-width:760px;
+margin-left:auto;
+margin-right:auto;
+}
+}
+
+
+@media (min-width:992px){
+
+/* Family */
+#familySlider{
+width:340px;
+max-width:340px;
+margin:40px auto 0;
+}
+
+/* Venue */
+#events{
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:36px;
+align-items:start;
+}
+#events>.eyebrow{
+grid-column:1/-1;
+margin-bottom:8px;
+}
+#events>.card{
+width:100%;
+margin:0;
+display:block;
+}
+
+/* Save the date */
+.std-card{
+display:block;
+width:620px;
+max-width:100%;
+margin:0 auto;
+}
+
+/* Contact card */
+.section>.card:has(.contact-row){
+display:block;
+width:620px;
+max-width:100%;
+margin:0 auto;
+}
+
+/* Contact rows remain flex */
+.section>.card:has(.contact-row) .contact-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+/* FAQ */
+.faq-list{
+max-width:760px;
+margin:0 auto;
+}
+
+}
+</style>
+</head>
+<body>
+
+<div id="starfield"></div>
+<a class="skip-link" href="#main-content">Skip to invitation details</a>
+
+<!-- background music: replace src with your own audio file, e.g. audio/lullaby.mp3 -->
+<audio id="bgm" loop preload="none">
+  <source src="audio/twinkle.mp3" type="audio/mp3">
+</audio>
+<button class="music-pill" id="musicPill" type="button" style="display:none">Play</button>
+<button class="music-fab show" id="musicFab" type="button" aria-label="Pause background music" aria-pressed="true">♪</button>
+
+<main class="wrap" id="main-content">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <!-- Replace this image with Tala's preferred full-screen portrait when ready. -->
+    <div class="hero-background" aria-hidden="true"><img src="images/family/tala.png" alt=""></div>
+
+
+    <p class="eyebrow">a little star's big day</p>
+    <h3 class="hero-name">Starr Azrielle</h3>
+        <svg class="crown-svg" viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="60" cy="10" r="3" fill="#F4C86A"/>
+      <circle cx="30" cy="26" r="2" fill="#F4C86A"/>
+      <circle cx="90" cy="26" r="2" fill="#F4C86A"/>
+      <circle cx="10" cy="44" r="1.6" fill="#9FC2FF"/>
+      <circle cx="110" cy="44" r="1.6" fill="#9FC2FF"/>
+      <path d="M10 44 L30 26 L60 10 L90 26 L110 44" stroke="#F4C86A" stroke-width="0.75" opacity="0.6"/>
+    </svg>
+     <h1 class="hero-name-tala">Tala</h1>
+    <svg class="name-swash" viewBox="0 0 200 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M4 12 C 40 2, 70 20, 100 10 S 160 2, 196 12" stroke="#D9B26B" stroke-width="1" fill="none" opacity="0.8"/>
+      <circle cx="100" cy="10.5" r="1.8" fill="#F4C86A"/>
+    </svg>
+    <p class="hero-occasion">Christening <span>&amp;</span> First Birthday</p>
+    <div class="scroll-cue"><span class="line"></span>Scroll</div>
+  </section>
+
+  <!-- ================= NAME MEANING ================= -->
+  <section class="section reveal">
+    <p class="eyebrow">her name, her story</p>
+     <p class="sky-note">Two years ago, we welcomed her big sister, <span class="name-tag">Sky</span>. When our second daughter arrived, the name felt like it had already been written for her — <em>Starr</em>, to shine alongside the <em>Sky</em> that came before her. Together, they are the sky and the light within it.</p>
+   <br>
+    <div class="meaning-grid">
+      <div class="meaning-card ornate">
+        <p class="word">Starr</p>
+        <p class="def">From "Star" — a light that guides, and one that shines uniquely on its own.</p>
+      </div>
+      <div class="meaning-card ornate">
+        <p class="word">Azrielle</p>
+        <p class="def">From the Hebrew "Azriel" — meaning "God is my help."</p>
+      </div>
+    </div>
+    <p class="section-sub" style="margin-bottom:26px;">Together, Starr Azrielle represents a radiant light whose life is guided by God's grace and whose presence inspires hope, love, and joy to those around her.</p>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <span class="stem l"></span>
+    <svg viewBox="0 0 60 20" xmlns="http://www.w3.org/2000/svg" style="width:52px;height:18px;flex:none;">
+      <path d="M2 10 Q 15 2, 30 10 T 58 10" stroke="#F4C86A" stroke-width="0.9" fill="none" opacity="0.85"/>
+      <circle cx="30" cy="10" r="2.4" fill="#F4C86A"/>
+      <circle cx="30" cy="10" r="4.6" stroke="#E8A9B8" stroke-width="0.6" fill="none" opacity="0.7"/>
+    </svg>
+    <span class="stem r"></span>
+  </div>
+
+  <!-- ================= CALENDAR ================= -->
+  <section class="section reveal">
+    <p class="eyebrow">mark your calendar</p>
+    <div class="calendar-card ornate">
+      <p class="calendar-head">August 2026</p>
+      <div class="cal-grid">
+        <div class="cal-dow">S</div><div class="cal-dow">M</div><div class="cal-dow">T</div><div class="cal-dow">W</div><div class="cal-dow">T</div><div class="cal-dow">F</div><div class="cal-dow">S</div>
+        <div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day">1</div>
+        <div class="cal-day">2</div><div class="cal-day">3</div><div class="cal-day">4</div><div class="cal-day">5</div><div class="cal-day">6</div><div class="cal-day">7</div><div class="cal-day">8</div>
+        <div class="cal-day">9</div><div class="cal-day">10</div><div class="cal-day">11</div><div class="cal-day">12</div><div class="cal-day">13</div><div class="cal-day">14</div><div class="cal-day">15</div>
+        <div class="cal-day">16</div><div class="cal-day">17</div><div class="cal-day">18</div><div class="cal-day">19</div><div class="cal-day">20</div><div class="cal-day">21</div><div class="cal-day">22</div>
+        <div class="cal-day marked">23</div><div class="cal-day">24</div><div class="cal-day">25</div><div class="cal-day">26</div><div class="cal-day">27</div><div class="cal-day">28</div><div class="cal-day">29</div>
+        <div class="cal-day">30</div><div class="cal-day">31</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <span class="stem l"></span>
+    <svg viewBox="0 0 60 20" xmlns="http://www.w3.org/2000/svg" style="width:52px;height:18px;flex:none;">
+      <path d="M2 10 Q 15 2, 30 10 T 58 10" stroke="#F4C86A" stroke-width="0.9" fill="none" opacity="0.85"/>
+      <circle cx="30" cy="10" r="2.4" fill="#F4C86A"/>
+      <circle cx="30" cy="10" r="4.6" stroke="#E8A9B8" stroke-width="0.6" fill="none" opacity="0.7"/>
+    </svg>
+    <span class="stem r"></span>
+  </div>
+
+  <!-- ================= FAMILY SLIDER ================= -->
+  <!-- <section class="section reveal">
+    <p class="eyebrow">our little family</p>
+    <p class="section-sub">Meet Tala's humble and loving family—a happy household blessed with one son and two daughters. Their youngest, Tala, fills their home with laughter and joy, bringing smiles to everyone around her. Together, they cherish life's simple moments, supporting one another with love, kindness, and gratitude.</p>
+    <div class="slider" id="familySlider" role="region" aria-roledescription="carousel" aria-label="Family photos" tabindex="0">
+      <div class="slider-track" id="sliderTrack">
+        <img src="images/family/1.jpg" alt="Family photo 1">
+        <img src="images/family/2.jpg" alt="Family photo 2">
+        <img src="images/family/3.jpg" alt="Family photo 3">
+        <img src="images/family/4.jpg" alt="Family photo 4">
+      </div>
+      <button class="slider-control prev" id="sliderPrev" type="button" aria-label="Show previous family photo">‹</button>
+      <button class="slider-control next" id="sliderNext" type="button" aria-label="Show next family photo">›</button>
+    </div>
+    <div class="slider-dots" id="sliderDots">
+      <button class="active" type="button" aria-label="Show family photo 1" aria-current="true"></button>
+      <button type="button" aria-label="Show family photo 2" aria-current="false"></button>
+      <button type="button" aria-label="Show family photo 3" aria-current="false"></button>
+      <button type="button" aria-label="Show family photo 4" aria-current="false"></button>
+    </div>
+  </section> -->
+
+  <!-- <div class="divider" aria-hidden="true">
+    <span class="stem l"></span>
+    <svg viewBox="0 0 60 20" xmlns="http://www.w3.org/2000/svg" style="width:52px;height:18px;flex:none;">
+      <path d="M2 10 Q 15 2, 30 10 T 58 10" stroke="#F4C86A" stroke-width="0.9" fill="none" opacity="0.85"/>
+      <circle cx="30" cy="10" r="2.4" fill="#F4C86A"/>
+      <circle cx="30" cy="10" r="4.6" stroke="#E8A9B8" stroke-width="0.6" fill="none" opacity="0.7"/>
+    </svg>
+    <span class="stem r"></span>
+  </div> -->
+
+  <!-- ================= DRESS CODE ================= -->
+  <section class="section reveal">
+    <p class="eyebrow">dress code</p>
+    <p class="section-sub" style="margin-bottom:0;">Any touch of white or royal blue — wear whatever makes you feel like you belong under the same night sky.</p>
+    <div class="dress-row">
+      <div class="swatch"><div class="dot white"></div><p class="lbl">White</p></div>
+      <div class="swatch"><div class="dot royal"></div><p class="lbl">Royal Blue</p></div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <span class="stem l"></span>
+    <svg viewBox="0 0 60 20" xmlns="http://www.w3.org/2000/svg" style="width:52px;height:18px;flex:none;">
+      <path d="M2 10 Q 15 2, 30 10 T 58 10" stroke="#F4C86A" stroke-width="0.9" fill="none" opacity="0.85"/>
+      <circle cx="30" cy="10" r="2.4" fill="#F4C86A"/>
+      <circle cx="30" cy="10" r="4.6" stroke="#E8A9B8" stroke-width="0.6" fill="none" opacity="0.7"/>
+    </svg>
+    <span class="stem r"></span>
+  </div>
+
+  <!-- ================= EVENTS / VENUES ================= -->
+  <section class="section reveal" id="events">
+    <p class="eyebrow">where to find us</p>
+
+    <div class="card ornate">
+      <img class="venue-photo" src="https://placehold.co/600x340/0F1B3D/F4C86A?text=St.+Vincent+Ferrer+Parish+Church" alt="St. Vincent Ferrer Parish Church">
+      <div class="card-body">
+        <p class="card-kicker"><svg width="16" height="16" viewBox="0 0 24 24" style="vertical-align:-3px; margin-right:6px;" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 13c3-1 5-3 6-6 1 4 4 6 8 6-2 3-6 5-9 4-2 3-4 4-5 3 1-2 1-4 0-7z" fill="#E8A9B8" opacity="0.85"/></svg>The Baptism</p>
+        <h3>St. Vincent Ferrer Parish Church</h3>
+        <p class="addr">San Vicente, Camarines Norte</p>
+        <p class="when">Aug 23, 2026 &nbsp;·&nbsp; 8:30 AM</p>
+        <iframe class="map-frame" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=St.+Vincent+Ferrer+Parish+Church%2C+Poblacion+District+II%2C+San+Vicente%2C+Camarines+Norte&output=embed"></iframe>
+        <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=St.%20Vincent%20Ferrer%20Parish%20Church%2C%20Poblacion%20District%20II%2C%20San%20Vicente%2C%20Camarines%20Norte">Get Directions</a>
+      </div>
+    </div>
+
+    <div class="card ornate">
+      <img class="venue-photo" src="https://placehold.co/600x340/0F1B3D/9FC2FF?text=Francisco+Residence" alt="Francisco residence reception venue">
+      <div class="card-body">
+        <p class="card-kicker">The Celebration</p>
+        <h3>Francisco Residence (Pin: Tindahan ni Kuya)</h3>
+        <p class="addr">Purok-2, Barangay Fabrica<br>San Vicente, Camarines Norte</p>
+        <p class="when">Reception follows right after the Baptismal Ceremony</p>
+        <iframe class="map-frame" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Tindahan+ni+Kuya%2C+San+Vicente+Road%2C+Purok-2%2C+San+Vicente%2C+4609+Camarines+Norte&output=embed"></iframe>
+        <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Tindahan%20ni%20Kuya%2C%20San%20Vicente%20Road%2C%20Purok-2%2C%20San%20Vicente%2C%204609%20Camarines%20Norte">Get Directions</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <span class="stem l"></span>
+    <svg viewBox="0 0 60 20" xmlns="http://www.w3.org/2000/svg" style="width:52px;height:18px;flex:none;">
+      <path d="M2 10 Q 15 2, 30 10 T 58 10" stroke="#F4C86A" stroke-width="0.9" fill="none" opacity="0.85"/>
+      <circle cx="30" cy="10" r="2.4" fill="#F4C86A"/>
+      <circle cx="30" cy="10" r="4.6" stroke="#E8A9B8" stroke-width="0.6" fill="none" opacity="0.7"/>
+    </svg>
+    <span class="stem r"></span>
+  </div>
+
+  <!-- ================= SAVE THE DATE ================= -->
+  <section class="section reveal">
+    <div class="card ornate std-card">
+      <p class="eyebrow" style="margin-bottom:6px;">save the date</p>
+      <p class="big-date">August 23, 2026</p>
+      <p class="sub">08:30 AM &nbsp;·&nbsp; San Vicente, Camarines Norte</p>
+      <button class="btn btn-outline" id="addToCal" type="button">+ Add to Calendar</button>
+    </div>
+  </section>
+
+  <!-- ================= RSVP ================= -->
+  <section class="section reveal">
+    <div class="rsvp-box ornate">
+      <p class="eyebrow" style="margin-bottom:10px;">kindly respond</p>
+      <h3 style="color:var(--ivory); font-size:1.2rem; margin-bottom:10px;">We'd love to know you're coming</h3>
+      <p>Scan the code below to fill out our RSVP form, or use the link under it.</p>
+      <!-- QR code: replace RSVP-LINK-HERE with your real RSVP form link (a free Google Form works great) -->
+      <div class="qr-wrap">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://forms.gle/PTyLWBJSxRtf23wr6" alt="RSVP QR code">
+      </div>
+      <a class="rsvp-link" href="https://forms.gle/PTyLWBJSxRtf23wr6" target="_blank" rel="noopener">https://forms.gle/PTyLWBJSxRtf23wr6</a>
+      <p style="margin-top:14px;">Kindly respond on or before August 15, 2026.</p>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <span class="stem l"></span>
+    <svg viewBox="0 0 60 20" xmlns="http://www.w3.org/2000/svg" style="width:52px;height:18px;flex:none;">
+      <path d="M2 10 Q 15 2, 30 10 T 58 10" stroke="#F4C86A" stroke-width="0.9" fill="none" opacity="0.85"/>
+      <circle cx="30" cy="10" r="2.4" fill="#F4C86A"/>
+      <circle cx="30" cy="10" r="4.6" stroke="#E8A9B8" stroke-width="0.6" fill="none" opacity="0.7"/>
+    </svg>
+    <span class="stem r"></span>
+  </div>
+
+  <!-- ================= PEOPLE ================= -->
+  <section class="section reveal">
+    <p class="eyebrow">with love &amp; gratitude</p>
+    <div style="text-align:center; margin-bottom:40px;">
+      <p style="font-family:'Space Mono', monospace; font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--ivory-dim); margin-bottom:10px;">Proud Parents</p>
+      <p style="font-family:'Fraunces', serif; font-style:italic; font-size:1.4rem; color:var(--gold);">Daddy Arjem &amp; Mommy Irene</p>
+    </div>
+
+    <div class="sponsor-cols">
+      <div class="sponsor-col">
+        <p class="tag">Ninong</p>
+        <ul>
+        <li>Patrick Gutierrez</li>
+        <li>Franz Cañizares</li>
+          <li>Rondelle Lagumen</li>
+          <li>Drailan Terrible</li>
+          <li>Gleniel Parale</li>
+          <li>Edzel Dumael</li>
+          <li> Omar Bacerdo </li>
+          <li>Ariel Elep</li>
+           <li>Kystan Arcilla</li>
+          <li> Pol Macaro</li>
+          
+    
+        </ul>
+      </div>
+      <div class="sponsor-col">
+        <p class="tag">Ninang</p>
+        <ul>
+          <li>Lyra Mae Baul</li>
+          <li>Abegail Tejares</li>
+          <li>Virlyn Escalante</li>
+          <li>Tin Rangasa</li>
+          <li> Anna Mae Infante </li>
+          <li>Annie Jing Belga</li>
+          <li>Pamela Fae Paming</li>
+          <li> Mariss Acbang </li>
+          <li> Marvelyn Oltiveros </li>
+          <li>Lorelyn Francisco</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <span class="stem l"></span>
+    <svg viewBox="0 0 60 20" xmlns="http://www.w3.org/2000/svg" style="width:52px;height:18px;flex:none;">
+      <path d="M2 10 Q 15 2, 30 10 T 58 10" stroke="#F4C86A" stroke-width="0.9" fill="none" opacity="0.85"/>
+      <circle cx="30" cy="10" r="2.4" fill="#F4C86A"/>
+      <circle cx="30" cy="10" r="4.6" stroke="#E8A9B8" stroke-width="0.6" fill="none" opacity="0.7"/>
+    </svg>
+    <span class="stem r"></span>
+  </div>
+
+  <!-- ================= CONTACTS ================= -->
+  <section class="section reveal">
+    <p class="eyebrow">questions? reach us</p>
+    <div class="card ornate" style="padding:6px 22px 18px;">
+      <div class="contact-row"><span class="who">Irene</span><span class="num">0956-512-6310</span></div>
+      <div class="contact-row"><span class="who">Arjem</span><span class="num">0907-041-8923</span></div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="section reveal">
+    <p class="eyebrow">good to know</p>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Are kids welcome?<span class="plus">+</span></summary>
+        <p class="faq-a">Of course — this celebration is for the whole family, little ones included.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What should I wear?<span class="plus">+</span></summary>
+        <p class="faq-a">Any touch of white or royal blue is most welcome. Comfortable and semi-formal is perfect.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I take photos during the Mass?<span class="plus">+</span></summary>
+        <p class="faq-a">Yes, just kindly keep flash photography to a minimum and be mindful during the sacrament.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is parking available?<span class="plus">+</span></summary>
+        <p class="faq-a">Yes</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do you have a gift preference?<span class="plus">+</span></summary>
+        <p class="faq-a">Your presence is truly the gift.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ================= MILESTONES ================= -->
+  <section class="section reveal" aria-labelledby="memories-title">
+    <p class="eyebrow">starr's journey across the sky</p>
+    <h2 class="section-title" id="memories-title">A year in little moments</h2>
+    <p class="section-sub">A continuous photo album from her first day to the beautiful little person she is becoming. Swipe through the stars.</p>
+
+    <!--
+      MILESTONE PHOTO SETUP:
+      Upload images as `images/milestones/01.jpg` through `50.jpg`, or replace the
+      generated paths in the `milestonePhotos` list below and customize the captions.
+    -->
+    <div class="memory-album" id="memoryAlbum" role="region" aria-roledescription="carousel" aria-label="Starr's milestone photo album" tabindex="0">
+      <div class="memory-track" id="memoryTrack"></div>
+    </div>
+    <div class="memory-controls">
+      <button class="memory-button" id="memoryPrev" type="button" aria-label="Show previous milestone photo">‹</button>
+      <div class="memory-progress" aria-hidden="true"><span id="memoryProgress"></span></div>
+      <p class="memory-count" id="memoryCount" aria-live="polite">1 / 50</p>
+      <button class="memory-button" id="memoryNext" type="button" aria-label="Show next milestone photo">›</button>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= CLOSING FULL SCREEN ================= -->
+
+<section class="closing full-bleed">
+  <div class="closing-bg">
+    <!-- CLOSING PHOTO: replace with a favorite photo of Starr -->
+    <img src="images/family/endpic.jpeg" alt="Starr Azrielle">
+  </div>
+  <div class="closing-content">
+    <p class="eyebrow">until we meet under the stars</p>
+    <h2>We are waiting for you, dear family and loved ones.</h2>
+    <p class="cdate">AUGUST 23, 2026 | 08:30AM</p>
+  </div>
+</section>
+
+  <section class="section full-bleed" id="countdown-finale" style="min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(180deg,#08132b,#060B1E);"><div class="wrap">
+      <h2 class="section-title">See You Soon</h2>
+    <p class="eyebrow">Our Celebration Begins In</p>
+    <div class="countdown" style="justify-content:center;margin:24px 0;">
+      <div class="count-box">
+        <div class="num" id="cd-days">--</div>
+        <div class="lbl">Days</div></div><div class="count-box"><div class="num" id="cd-hours">--</div><div class="lbl">Hours</div></div><div class="count-box"><div class="num" id="cd-mins">--</div><div class="lbl">Minutes</div></div><div class="count-box"><div class="num" id="cd-secs">--</div><div class="lbl">Seconds</div></div></div><p class="hero-occasion">August 23, 2026 • 08:30 AM</p></div></section>
+  
+<footer>
+  <span class="fname">Starr Azrielle</span>
+  With love and thanks for celebrating this day with us.
+  
+</footer>
+
+<script>
+  // ---------- starfield ----------
+  (function(){
+    var field = document.getElementById('starfield');
+    var count = window.innerWidth < 500 ? 70 : 110;
+    for(var i=0;i<count;i++){
+      var s = document.createElement('div');
+      s.className = 'star';
+      var size = (Math.random()*2 + 0.6).toFixed(1);
+      s.style.width = size+'px';
+      s.style.height = size+'px';
+      s.style.left = (Math.random()*100)+'%';
+      s.style.top = (Math.random()*100)+'%';
+      s.style.animationDuration = (Math.random()*3 + 2)+'s';
+      s.style.animationDelay = (Math.random()*4)+'s';
+      field.appendChild(s);
+    }
+    for(var j=0;j<3;j++){
+      var sh = document.createElement('div');
+      sh.className = 'shooting-star';
+      sh.style.top = (Math.random()*40)+'%';
+      sh.style.left = (50 + Math.random()*40)+'%';
+      sh.style.animationDelay = (j*7 + Math.random()*5)+'s';
+      field.appendChild(sh);
+    }
+  })();
+
+  // ---------- countdown ----------
+  (function(){
+    var target = new Date('2026-08-23T08:30:00+08:00').getTime();
+    function tick(){
+      var now = Date.now();
+      var diff = target - now;
+      if(diff < 0) diff = 0;
+      var d = Math.floor(diff / 86400000);
+      var h = Math.floor((diff % 86400000) / 3600000);
+      var m = Math.floor((diff % 3600000) / 60000);
+      var s = Math.floor((diff % 60000) / 1000);
+      document.getElementById('cd-days').textContent = d;
+      document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+      document.getElementById('cd-mins').textContent = String(m).padStart(2,'0');
+      document.getElementById('cd-secs').textContent = String(s).padStart(2,'0');
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+
+  // ---------- reveal on scroll ----------
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){
+      els.forEach(function(el){ el.classList.add('visible'); });
+      return;
+    }
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, {threshold:0.15});
+    els.forEach(function(el){ obs.observe(el); });
+  })();
+
+  // ---------- music toggle ----------
+(function(){
+const bgm=document.getElementById('bgm');
+const fab=document.getElementById('musicFab');
+let playing=false;
+function update(){fab.textContent=playing?'❚❚':'♪';}
+function play(){bgm.play().then(()=>{playing=true;update();}).catch(()=>{});}
+document.addEventListener('click',function init(){play();document.removeEventListener('click',init);},{once:true});
+window.addEventListener('load',play);
+fab.classList.add('show');
+fab.addEventListener('click',()=>{if(playing){bgm.pause();playing=false;}else{play();}update();});
+update();
+})();
+
+  // ---------- family photo auto-slider ----------
+  (function(){
+    var track = document.getElementById('sliderTrack');
+    var slider = document.getElementById('familySlider');
+    var dots = document.querySelectorAll('#sliderDots button');
+    var slides = track.children.length;
+    var idx = 0;
+    var interval;
+    var startX = 0;
+    function go(i){
+      idx = (i + slides) % slides;
+      track.style.transform = 'translateX(-' + (idx*100) + '%)';
+      dots.forEach(function(d, di){
+        var active = di === idx;
+        d.classList.toggle('active', active);
+        d.setAttribute('aria-current', String(active));
+      });
+    }
+    function startAuto(){
+      window.clearInterval(interval);
+      interval = window.setInterval(function(){ go(idx+1); }, 4000);
+    }
+    document.getElementById('sliderPrev').addEventListener('click', function(){ go(idx-1); startAuto(); });
+    document.getElementById('sliderNext').addEventListener('click', function(){ go(idx+1); startAuto(); });
+    dots.forEach(function(dot, dotIndex){
+      dot.addEventListener('click', function(){ go(dotIndex); startAuto(); });
+    });
+    slider.addEventListener('keydown', function(event){
+      if(event.key === 'ArrowLeft'){ event.preventDefault(); go(idx-1); startAuto(); }
+      if(event.key === 'ArrowRight'){ event.preventDefault(); go(idx+1); startAuto(); }
+    });
+    slider.addEventListener('pointerdown', function(event){ startX = event.clientX; });
+    slider.addEventListener('pointerup', function(event){
+      var distance = event.clientX - startX;
+      if(Math.abs(distance) > 40){ go(distance > 0 ? idx-1 : idx+1); startAuto(); }
+    });
+    slider.addEventListener('mouseenter', function(){ window.clearInterval(interval); });
+    slider.addEventListener('mouseleave', startAuto);
+    slider.addEventListener('focusin', function(){ window.clearInterval(interval); });
+    slider.addEventListener('focusout', function(event){ if(!slider.contains(event.relatedTarget)){ startAuto(); } });
+    startAuto();
+  })();
+
+  // ---------- milestone memory album ----------
+  (function(){
+    var track = document.getElementById('memoryTrack');
+    var album = document.getElementById('memoryAlbum');
+    var count = document.getElementById('memoryCount');
+    var progress = document.getElementById('memoryProgress');
+    var totalPhotos = 47;
+    var activeIndex = 0;
+    var interval;
+    var dragStart = 0;
+    var scrollStart = 0;
+    var isDragging = false;
+
+    // Keep your uploads in images/ as 01.jpg through 50.jpg,
+    // or replace each generated source/caption below with your preferred values.
+    var milestonePhotos = Array.from({length:totalPhotos}, function(_, index){
+      var number = String(index + 1).padStart(2, '0');
+      return {
+        src:'images/' + number + '.jpeg',
+        caption:'Little moment ' + String(index + 1)
+      };
+    });
+
+    function placeholder(index){
+      return 'images/' + String(index + 1);
+    }
+    function updateStatus(index){
+      activeIndex = index;
+      count.textContent = String(index + 1) + ' / ' + String(milestonePhotos.length);
+      progress.style.width = ((index + 1) / milestonePhotos.length * 100) + '%';
+    }
+    milestonePhotos.forEach(function(photo, index){
+      var slide = document.createElement('article');
+      var image = document.createElement('img');
+      var label = document.createElement('p');
+      slide.className = 'memory-slide';
+      slide.setAttribute('aria-label', 'Milestone photo ' + String(index + 1) + ' of ' + String(milestonePhotos.length));
+      image.src = photo.src;
+      image.alt = photo.caption;
+      image.loading = index < 2 ? 'eager' : 'lazy';
+      image.addEventListener('error', function(){
+        if(!image.dataset.fallback){
+          image.dataset.fallback = 'true';
+          image.src = placeholder(index);
+        }
+      });
+      label.className = 'memory-slide-label';
+      label.textContent = photo.caption;
+      slide.appendChild(image);
+      slide.appendChild(label);
+      track.appendChild(slide);
+    });
+
+    var slides = Array.prototype.slice.call(track.children);
+    function show(index, behavior){
+      var next = (index + slides.length) % slides.length;
+      var slide = slides[next];
+      var left = slide.offsetLeft - (track.clientWidth - slide.clientWidth) / 2;
+      track.scrollTo({
+        left:left,
+        behavior:behavior || 'smooth'
+      });
+      updateStatus(next);
+    }
+    function startAuto(){
+      if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){ return; }
+      window.clearInterval(interval);
+      interval = window.setInterval(function(){ show(activeIndex + 1); }, 4200);
+    }
+    function stopAuto(){ window.clearInterval(interval); }
+    document.getElementById('memoryPrev').addEventListener('click', function(){ show(activeIndex - 1); startAuto(); });
+    document.getElementById('memoryNext').addEventListener('click', function(){ show(activeIndex + 1); startAuto(); });
+    album.addEventListener('keydown', function(event){
+      if(event.key === 'ArrowLeft'){ event.preventDefault(); show(activeIndex - 1); startAuto(); }
+      if(event.key === 'ArrowRight'){ event.preventDefault(); show(activeIndex + 1); startAuto(); }
+    });
+    track.addEventListener('pointerdown', function(event){
+      isDragging = true;
+      dragStart = event.clientX;
+      scrollStart = track.scrollLeft;
+      track.classList.add('is-dragging');
+      track.setPointerCapture(event.pointerId);
+      stopAuto();
+    });
+    track.addEventListener('pointermove', function(event){
+      if(isDragging){ track.scrollLeft = scrollStart - (event.clientX - dragStart); }
+    });
+    function endDrag(){
+      isDragging = false;
+      track.classList.remove('is-dragging');
+      startAuto();
+    }
+    track.addEventListener('pointerup', endDrag);
+    track.addEventListener('pointercancel', endDrag);
+    album.addEventListener('mouseenter', stopAuto);
+    album.addEventListener('mouseleave', startAuto);
+    album.addEventListener('focusin', stopAuto);
+    album.addEventListener('focusout', function(event){ if(!album.contains(event.relatedTarget)){ startAuto(); } });
+    if('IntersectionObserver' in window){
+      var observer = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){ updateStatus(slides.indexOf(entry.target)); }
+        });
+      }, {root:track, threshold:0.65});
+      slides.forEach(function(slide){ observer.observe(slide); });
+    }
+    updateStatus(0);
+
+    if('IntersectionObserver' in window){
+      var albumVisibility = new IntersectionObserver(function(entries){
+        if(entries[0].isIntersecting){
+          startAuto();
+        }else{
+          stopAuto();
+        }
+      }, {threshold:0.2});
+      albumVisibility.observe(album);
+    }else{
+      startAuto();
+    }
+  })();
+
+  // ---------- add to calendar (Google Calendar) ----------
+  document.getElementById('addToCal').addEventListener('click', function(){
+
+    var title='Starr Azrielle (Tala) - Christening & First Birthday';
+    var details='Join us as we celebrate Tala\'s Christening and First Birthday. Baptism at St. Vincent Ferrer Parish Church followed by a reception at Francisco Residence (Tindahan ni Kuya).';
+    var location='St. Vincent Ferrer Parish Church, San Vicente, Camarines Norte';
+
+    var url='https://calendar.google.com/calendar/render?action=TEMPLATE'
+      +'&text='+encodeURIComponent(title)
+      +'&dates=20260823T020000Z/20260823T050000Z'
+      +'&details='+encodeURIComponent(details)
+      +'&location='+encodeURIComponent(location);
+
+    window.open(url,'_blank','noopener');
+  });
+</script>
+
+</body>
+</html>
